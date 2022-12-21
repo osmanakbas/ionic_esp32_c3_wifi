@@ -1,0 +1,13 @@
+ion-content {
+    --background: #fff url("../../assets/bg-main.png") no-repeat center center / cover;
+}
+ion-toolbar{
+    --background: url("../../assets/bg-header.png") no-repeat center center / cover;
+    --border-width: 0px!important;
+}
+.connect-btn{
+    --background:linear-gradient(to right, #ffbf57, #f68d2c);
+    --background-activated:linear-gradient(to right, #ffbf57, #f68d2c);
+    --background-focused: linear-gradient(to right, #ffbf57, #f68d2c);
+    --background-hover: linear-gradient(to right, #ffbf57, #f68d2c);
+}

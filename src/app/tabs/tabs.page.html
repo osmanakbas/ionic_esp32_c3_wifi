@@ -1,0 +1,20 @@
+<ion-tabs #tabs (ionTabsDidChange)="setCurrentTab()">
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="tab1">
+      <img src="assets/home-icon.png" width="21px">
+      <ion-label class="montserrat fs-11">Home</ion-label>
+    </ion-tab-button>
+
+    <!-- <ion-tab-button tab="tab2">
+      <img [src]="selectedTab == 'tab2' ? 'assets/otomasyon-select-icon.png' : 'assets/otomasyon-icon.png'" width="21px">
+      <ion-label class="montserrat fs-11">Automation</ion-label>
+    </ion-tab-button> -->
+
+    <ion-tab-button tab="tab3">
+      <img src="assets/profil-icon.png" width="21px">
+      <ion-label class="montserrat fs-11">Profile</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>

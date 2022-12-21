@@ -1,0 +1,40 @@
+import { NgModule } from '@angular/core';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {
+    path: '',
+    loadChildren: () => import('./device-select/device-select.module').then(m => m.DeviceSelectPageModule)
+  },
+  // {
+  //   path: '',
+  //   loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  // },
+  {
+    path: 'tabs/tab1',
+    loadChildren: () => import('./tab1/tab1.module').then( m => m.Tab1PageModule)
+  },
+  {
+    path: 'tabs/tab2',
+    loadChildren: () => import('./tab2/tab2.module').then( m => m.Tab2PageModule)
+  },
+  {
+    path: 'wifi',
+    loadChildren: () => import('./wifi/wifi.module').then( m => m.WifiPageModule)
+  },
+  {
+    path: 'device-select',
+    loadChildren: () => import('./device-select/device-select.module').then( m => m.DeviceSelectPageModule)
+  },
+  {
+    path: 'wifi-pass-modal',
+    loadChildren: () => import('./wifi-pass-modal/wifi-pass-modal.module').then( m => m.WifiPassModalPageModule)
+  }
+];
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+  ],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}

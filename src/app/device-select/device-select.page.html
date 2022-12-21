@@ -1,0 +1,178 @@
+<ion-header>
+  <ion-toolbar class="px-20i">
+    <ion-row class="h-10">
+      <ion-col size="10" class="sf-pro-bold d-flex align-items-center">
+        <div>
+          <h4 class="text-dark fs-24 my-5 text-underline underline-offset-5" *ngIf="status == 2">
+            Name your device
+          </h4>
+
+          <h4 class="text-dark fs-24 my-5 text-underline underline-offset-5" *ngIf="status == 3">
+            Find wifi
+          </h4>
+
+          <h4 class="text-dark fs-24 my-5 text-underline underline-offset-5" *ngIf="status == 4">
+            Connecting
+          </h4>
+        </div>
+      </ion-col>
+      <ion-col size="2" class="d-flex align-items-center justify-end" (click)="close()">
+        <ion-icon name="close-outline" class="fs-38 text-dark-gray"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content scrollY="false">
+  <ion-grid *ngIf="status == 2" class="h-15">
+    <ion-row>
+      <ion-col size="12" class="px-25">
+        <p class="sf-pro-regular fs-18 text-dark">
+          How do you want to call you device? It can be named like “My home pot” or “Joe’s pot”
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid *ngIf="status == 3" class="h-15">
+    <ion-row>
+      <ion-col size="12" class="px-25">
+        <p class="sf-pro-regular fs-18 text-dark">
+          Please find the wifi that you want to connect with and insert password
+        </p> 
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid *ngIf="status == 4" class="h-15">
+    <ion-row>
+      <ion-col size="12" class="px-25">
+        <p class="sf-pro-regular fs-18 text-dark">
+          We are setting up your device. Once it’s done you will be directed to main screen
+          Please do not close your app
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid *ngIf="status == 2" class="h-85 w-100 d-flex align-items-center">
+    <ion-row class="w-100">
+      <ion-col size="1">
+
+      </ion-col>
+      <ion-col size="10" class="text-center px-20">
+        <ion-input placeholder="{{deviceNamePlaceholder}}" [(ngModel)]="deviceNameText"
+          class="border-bottom-1 border-gray fs-26 sf-pro-bold">
+
+        </ion-input>
+      </ion-col>
+      <ion-col size="1">
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid *ngIf="status == 3" class="h-85 overflow-scroll">
+    <ion-row>
+      <ion-col size="12" class="px-25">
+        <p *ngFor="let item of esp_wifi_list"
+          class="sf-pro-regular fs-18 text-dark py-15 m-0 border-bottom-1 border-gray d-flex align-items-center justify-space-between"
+          (click)="selectHomeWifi(item.ssid)">
+          {{item.ssid }}
+          <span class="d-flex align-items-center">
+            <ion-icon name="reorder-two-outline"></ion-icon>
+          </span>
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid *ngIf="status == 4" class="h-85">
+    <ion-row class="h-100">
+      <ion-col size="12" class="h-100 px-25 text-center">
+        <circle-progress
+        class="mt-20"
+        [percent]="progress_value"
+        [radius]="100"
+        [outerStrokeWidth]="10"
+        [innerStrokeWidth]="0"
+        [outerStrokeColor]="'#F74B4B'"
+        [showBackground]="true"
+        [showBackground]="true"
+        [showInnerStroke]="true"
+        [backgroundStroke]="'#ccc'"
+        [backgroundStrokeWidth]="10"
+        [backgroundPadding]="-5"
+        [animation]="true"
+        [startFromZero] = false
+        [showZeroOuterStroke] = true
+        [showTitle]="true"
+        [showSubtitle]="false"
+        [showUnits]="true"
+        [unitsFontSize]="20"
+        [titleFontSize]="30"
+        [titleFontWeight]="500">
+      </circle-progress>
+      <p>
+        {{progress_text}}
+      </p>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+  <ion-grid
+    style="width: 100%; height: 200px; position: fixed; bottom: 0; z-index: 1; background: linear-gradient(180deg, rgba(246, 246, 246, 0) 3.63%, rgba(255, 255, 255, 0) 3.63%, #fff 70%);">
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="footer-toolbar">
+    <ion-row>
+      <ion-col size="12" class="text-center sf-pro-regular fs-12 text-dark-gray" *ngIf="status == 2">
+        <p *ngIf="selectDeviceControl == true">
+          <ion-icon name="ellipse" style="color: #F74B4B" class="pe-5"></ion-icon>
+          <ion-icon name="ellipse" style="color: #D9D9D9" class="pe-5"></ion-icon>
+          <ion-icon name="ellipse" style="color: #D9D9D9"></ion-icon>
+        </p>
+      </ion-col>
+
+      <ion-col size="12" class="text-center sf-pro-regular fs-12 text-dark-gray" *ngIf="status == 3">
+        <p *ngIf="selectDeviceControl == true">
+          <ion-icon name="ellipse" style="color: #F74B4B" class="pe-5"></ion-icon>
+          <ion-icon name="ellipse" style="color: #F74B4B" class="pe-5"></ion-icon>
+          <ion-icon name="ellipse" style="color: #D9D9D9"></ion-icon>
+        </p>
+      </ion-col>
+
+      <ion-col size="12" class="text-center sf-pro-regular fs-12 text-dark-gray" *ngIf="status == 4">
+        <p *ngIf="selectDeviceControl == true">
+          <ion-icon name="ellipse" style="color: #F74B4B" class="pe-5"></ion-icon>
+          <ion-icon name="ellipse" style="color: #F74B4B" class="pe-5"></ion-icon>
+          <ion-icon name="ellipse" style="color: #F74B4B"></ion-icon>
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="px-10" *ngIf="selectDeviceControl == false">
+        <ion-button expand="block" class="btn sf-pro-bold fs-17" disabled>
+          Add new device
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="12" class="px-10" *ngIf="selectDeviceControl == true && status == 2">
+        <ion-button expand="block" class="btn sf-pro-bold fs-17" (click)="phoneSetting()">
+          Proceed
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="12" class="px-10" *ngIf="selectDeviceControl == true && status == 3">
+        <ion-button expand="block" class="btn sf-pro-bold fs-17" (click)="goWifiList()">
+          Connect
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="12" class="px-10" *ngIf="selectDeviceControl == true && status == 4">
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

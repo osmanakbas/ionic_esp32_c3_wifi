@@ -1,0 +1,112 @@
+<!-- <ion-header>
+  <ion-toolbar class="text-center">
+    <ion-title class="montserrat">Profile</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-header>
+  <ion-toolbar class="p-10">
+    <ion-title>
+      <img src="assets/arikusu-logo-2.png" class="w-80" (click)="goHome()">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="bg-transparent b-rad-10 montserrat mx-10 mb-20">
+      <ion-col size="2" class="fs-50 d-flex align-items-center">
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </ion-col>
+      <ion-col size="8" class="montserrat d-flex align-items-center">
+        <div>
+          <h5 class="m-0 fs-16">
+            {{usermail}}
+          </h5>
+          <p class="m-0 fs-14">
+            {{usermail}}
+          </p>
+        </div>
+      </ion-col>
+      <ion-col size="2" class="d-flex align-items-center justify-end" (click)="logout()">
+        <ion-icon name="log-out-outline" class="fs-24"></ion-icon>
+      </ion-col>
+      <!-- <ion-grid class="d-flex align-items-center">
+        <ion-row class="w-100">
+          <ion-col size="6" offset="3">
+            <ion-button shape="round" class="w-100 logout-btn montserrat fs-16 fw-bold mt-50" (click)="logout()">
+              Logout
+            </ion-button>
+          </ion-col>
+          <ion-col size="6" offset="3" class="text-center">
+            <img alt="Login with Amazon" class="mt-50" src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png" width="156" height="32" (click)="goLWA()" />
+          </ion-col>
+        </ion-row>
+      </ion-grid> -->
+    </ion-row>
+    
+    <!-- <ion-row class="fs-14 bg-white b-rad-10 montserrat mx-10 mode-box mb-20">
+      <ion-col size="11" class="px-10 py-10">
+        Change Password
+      </ion-col>
+      <ion-col size="1" class="d-flex align-items-center">
+        <ion-icon name="chevron-forward-outline" class="fs-19"></ion-icon>
+      </ion-col>
+    </ion-row> -->
+
+    <ion-row class="fs-14 bg-white b-rad-10 montserrat mx-10 mode-box mb-20" *ngIf="amazon_user_check == false" (click)="goLWA()">
+      <ion-col size="11" class="px-10 py-10">
+        Connect with Amazon
+      </ion-col>
+      <ion-col size="1" class="d-flex align-items-center">
+        <ion-icon name="chevron-forward-outline" class="fs-19"></ion-icon>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="fs-14 bg-white b-rad-10 montserrat mx-10 mode-box mb-20" *ngIf="amazon_user_check == true" (click)="disconnectAmazon()">
+      <ion-col size="11" class="px-10 py-10">
+        Disconnect Amazon
+      </ion-col>
+      <ion-col size="1" class="d-flex align-items-center">
+        <ion-icon name="chevron-forward-outline" class="fs-19"></ion-icon>
+      </ion-col>
+    </ion-row>
+
+    <!-- <ion-col size="12" class="text-center">
+      <ion-label class="text-gray montserrat fs-12">
+        To sign in with your Amazon account
+        <span class="fw-bold">
+          <img alt="Login with Amazon" class="mt-20"
+            src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png" width="156"
+            height="32" (click)="goLWA()" />
+        </span>
+      </ion-label>
+    </ion-col> -->
+
+    <!-- <ion-row class="fs-14 bg-white b-rad-10 montserrat mx-10 mode-box mb-20">
+      <ion-col size="11" class="px-10 py-10">
+        Login with Amazon
+      </ion-col>
+      <ion-col size="1" class="d-flex align-items-center">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-col>
+      <ion-col size="12" class="d-flex align-items-center justify-center">
+        <ion-label class="px-5 py-10">
+          Linked to <span class="fw-bold text-green"> {{usermail}} </span> account
+        </ion-label>
+
+        <ion-label class="px-5 py-10">
+            <img alt="Login with Amazon" src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png" width="156" height="32" (click)="goLWA()" />
+        </ion-label> 
+      </ion-col>
+    </ion-row> -->
+
+    <ion-row class="fs-14 bg-transparent b-rad-10 montserrat mx-10">
+      <ion-col size="12" class="py-10 px-0">
+        <ion-button shape="round" expand="block" class="logout-btn montserrat fs-16 fw-bold" (click)="deleteUserAccount()">
+          Delete my account
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

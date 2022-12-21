@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar class="p-10">
+    <ion-buttons slot="secondary">
+      <ion-icon name="chevron-back-outline" class="bg-white b-rad-50 fs-24 p-5" (click)="back()"></ion-icon>
+    </ion-buttons>
+    <ion-title>
+      <img src="assets/arikusu-logo-2.png" class="w-80" (click)="goHome()">
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="refresh-outline" class="bg-white b-rad-50 fs-24 p-5" (click)="refreshList()"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="h-100">
+    <ion-row class="h-100 px-20 mt-20">
+      <ion-col size="12" class="bg-transparent-io text-center" *ngIf="connected_wifi == false">
+        <img src="assets/wifi-setting.png" class="pt-15">
+        <h4 class="montserrat fs-14 text-left">
+          1- Push "Wifi Settings" button
+        </h4>
+
+        <h4 class="montserrat fs-14 text-left">
+          2- Then choose "mokapot-xxx" on the net
+        </h4>
+
+        <h4 class="montserrat fs-14 text-left">
+          3- Push "back" button
+        </h4>
+
+        <h4 class="montserrat fs-14 text-left">
+          4- Choose your home network
+        </h4>
+        <ion-button (click)="phoneSetting()" class="connect-btn mt-20">
+          <ion-icon name="wifi" class="text-white pe-10"></ion-icon> Wifi Settings
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="12" class="bg-transparent-io" *ngIf="connected_wifi == true">
+        <h4 class="montserrat fs-14 text-center">
+          Select your home network
+        </h4>
+        <ion-item *ngFor="let item of esp_wifi_list" lines="none" class="b-rad-50 mb-10 mode-box">
+          <ion-label (click)="selectHomeWifi(item.ssid)">
+            <ion-icon name="wifi" class="pe-10"></ion-icon> {{item.ssid}}
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

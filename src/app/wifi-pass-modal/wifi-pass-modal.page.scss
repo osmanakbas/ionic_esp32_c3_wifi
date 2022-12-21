@@ -1,0 +1,19 @@
+ion-content {
+    --background: #fff;
+}
+
+ion-toolbar{
+    --background: #fff;
+    --border-width: 0px!important;
+    padding-top: 0!important;
+}
+
+.btn{
+    --background:#F74B4B;
+    --background-activated:#F74B4B;
+    --background-focused: #F74B4B;
+    --background-hover: #F74B4B;
+    color:#fff;
+    font-family: "SFProMedium";
+    font-size: 17px;
+}

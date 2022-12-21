@@ -1,0 +1,365 @@
+<ion-header>
+  <ion-toolbar class="px-20">
+    <ion-row class="h-10">
+      <ion-col size="10" class="sf-pro-bold d-flex align-items-center">
+        <div>
+          <h4 class="text-dark fs-24 my-5" (click)="bleScan()">
+            My Devices ({{my_device_length}})
+          </h4>
+        </div>
+      </ion-col>
+      <ion-col size="2" class="d-flex align-items-center justify-end" (click)="goProfile()">
+        <img src="assets/icon/profile-circle.png">
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+<ion-content scrollY="false">
+  <ion-grid class="h-100">
+    <ion-row class="h-100 align-content-flex-start" style="overflow: auto;">
+      <ion-col>
+        <h4 class="sf-pro-regular fs-19 px-20" *ngIf="coffee_makers.length > 0">
+          Coffee Makers
+        </h4>
+
+        <ion-slides [options]="slideOpts" #slider *ngIf="coffee_makers.length > 0">
+          <ion-slide *ngFor="let device of coffee_makers;">
+            <ion-grid class="w-inherit">
+              <ion-row>
+                <ion-col size="12">
+                  <div class="my-device-box">
+                    <div class="w-100">
+                      <ion-icon name="information-circle-outline" class="fs-25 position-absolute right-15 top-15" (click)="goInfoDevice(device)"></ion-icon>
+                    </div>
+                    <div class="w-100" (click)="autoConnect(device)">
+                      <img src="assets/new_device_category/mokaC1.png" *ngIf="device.devicetype.S == 'mokapotC1'" class="b-rad-10 w-100">
+                      <img src="assets/new_device_category/mokaA.png" *ngIf="device.devicetype.S == 'mokapotA'" class="b-rad-10 w-100">
+                      <img src="assets/new_device_category/mokaB.png" *ngIf="device.devicetype.S == 'mokapotB'" class="b-rad-10 w-100">
+                    </div>
+                    <div class="w-100">
+                      <ion-row>
+                        <ion-col size="12" class="d-flex align-items-center overflow-hidden">
+                          <h6 class="m-0 px-10 roboto fs-14 w-100 d-flex align-items-center justify-space-between">
+                            {{device.devicename.S}}
+                          </h6>
+                        </ion-col>
+
+                        <!-- <ion-col size="2">
+                          <h6 class="d-flex align-items-center justify-center m-0 p-0">
+                            <ion-icon name="share-social" class="fs-26"></ion-icon>
+                          </h6>
+                        </ion-col> -->
+                      </ion-row>
+                    </div>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-slide>       
+        </ion-slides>
+
+        <h4 class="sf-pro-regular fs-19 px-20" *ngIf="kitchen_tools.length > 0">
+          Kitchen Tools
+        </h4>
+
+        <ion-slides [options]="slideOpts" #slider *ngIf="kitchen_tools.length > 0">
+          <ion-slide *ngFor="let device of kitchen_tools;">
+            <ion-grid>
+              <ion-row>
+                <ion-col size="12">
+                  <div class="my-device-box">
+                    <div class="w-100">
+                      <ion-icon name="information-circle-outline" class="fs-25 position-absolute right-15 top-15" (click)="goInfoDevice(device)"></ion-icon>
+                    </div>
+                    <div class="w-100" (click)="autoConnect(device)">
+                      <img src="assets/new_device_category/fitchef.png" *ngIf="device.devicetype.S == 'fitchef'" class="b-rad-10 w-100">
+                      <img src="assets/devices_category/hottleA.png" *ngIf="device.devicetype.S == 'hottleA'" class="b-rad-10 w-100">
+                      <img src="assets/devices_category/korkmaz_moderna.png" *ngIf="device.devicetype.S == 'moderna'" class="b-rad-10 w-100">
+                      <!-- <img src="assets/new_device_category/korkmaz_moderna.png" *ngIf="device.devicetype.S == 'korkmazModerna'" class="b-rad-10 w-100">
+                      <img src="assets/new_device_category/korkmaz_castron.png" *ngIf="device.devicetype.S == 'korkmazCastron'" class="b-rad-10 w-100"> -->
+                    </div>
+                    <div class="w-100">
+                      <ion-row>
+                        <ion-col size="12" class="d-flex align-items-center overflow-hidden">
+                          <h6 class="m-0 px-10 roboto fs-14 w-100 d-flex align-items-center justify-space-between">
+                            {{device.devicename.S}}
+                          </h6>
+                        </ion-col>
+
+                        <!-- <ion-col size="2">
+                          <h6 class="d-flex align-items-center justify-center m-0 p-0">
+                            <ion-icon name="information-circle-outline" class="fs-26"></ion-icon>
+                          </h6>
+                        </ion-col> -->
+                      </ion-row>
+                    </div>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-slide>       
+        </ion-slides>
+
+        <h4 class="sf-pro-regular fs-19 px-20" *ngIf="scales.length > 0">
+          Scales
+        </h4>
+
+        <ion-slides [options]="slideOpts" #slider *ngIf="scales.length > 0">
+          <ion-slide *ngFor="let device of scales;">
+            <ion-grid>
+              <ion-row>
+                <ion-col size="12">
+                  <div class="my-device-box">
+                    <div class="w-100">
+                      <ion-icon name="information-circle-outline" class="fs-25 position-absolute right-15 top-15" (click)="goInfoDevice(device)"></ion-icon>
+                    </div>
+
+                    <div class="w-100" (click)="autoConnect(device)">
+                      <img src="assets/new_device_category/scaleistA.png" *ngIf="device.devicetype.S == 'scaleistA'" class="b-rad-10 w-100">
+                      <img src="assets/new_device_category/scaleistB.png" *ngIf="device.devicetype.S == 'scaleistB'" class="b-rad-10 w-100">
+                    </div>
+
+                    <div class="w-100">
+                      <ion-row>
+                        <ion-col size="12" class="d-flex align-items-center overflow-hidden">
+                          <h6 class="m-0 px-10 roboto fs-14 w-100 d-flex align-items-center justify-space-between">
+                            {{device.devicename.S}}
+                          </h6>
+                        </ion-col>
+
+                        <!-- <ion-col size="2">
+                          <h6 class="d-flex align-items-center justify-center m-0 p-0">
+                            <ion-icon name="information-circle-outline" class="fs-26"></ion-icon>
+                          </h6>
+                        </ion-col> -->
+                      </ion-row>
+                    </div>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-slide>       
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="p-5 h-90 align-content-flex-start" style="overflow: auto;">
+
+      <ion-col size="6" size-md="3" class="h-minc" *ngFor="let device of devices">
+        <ion-grid class="bg-white b-rad-10 device-box">
+          <ion-row>
+            <ion-col size="6" *ngIf="device.devicetype.S == 'mokapotA'" (click)="autoConnect(device)">
+              <img src="assets/new_device_category/mokaA.png">
+            </ion-col>
+            <ion-col size="6" *ngIf="device.devicetype.S == 'mokapotB'" (click)="autoConnect(device)">
+              <img src="assets/new_device_category/mokaB.png">
+            </ion-col>
+            <ion-col size="6" *ngIf="device.devicetype.S == 'scaleistA'" (click)="autoConnect(device)">
+              <img src="assets/new_device_category/scaleistA.png">
+            </ion-col>
+            <ion-col size="6" *ngIf="device.devicetype.S == 'scaleistB'" (click)="autoConnect(device)">
+              <img src="assets/new_device_category/scaleistB.png">
+            </ion-col>
+            <ion-col size="6" *ngIf="device.devicetype.S == 'fitchef'" (click)="autoConnect(device)">
+              <img src="assets/new_device_category/fitchef.png">
+            </ion-col>
+            <ion-col size="6" *ngIf="device.devicetype.S == 'hottleA'" (click)="autoConnect(device)">
+              <img src="assets/new_device_category/hottleA.png">
+            </ion-col>
+            <ion-col size="6" *ngIf="device.devicetype.S == 'moderna'" (click)="autoConnect(device)">
+              <img src="assets/devices_category/korkmaz_moderna.png">
+            </ion-col>
+            <ion-col size="6" *ngIf="device.devicetype.S == 'korkmazCastron'" (click)="autoConnect(device)">
+              <img src="assets/new_device_category/korkmaz_castron.png">
+            </ion-col>
+            <ion-col size="6" class="text-right">
+              <!-- <img src="assets/olcum-gray.png" class="w-30"> -->
+              <!-- <ion-icon name="alert-circle-outline" class="fs-22" (click)="deleteDevices(device)"></ion-icon> -->
+              <ion-icon name="share-social" class="fs-22" (click)="deviceInfo(device)"></ion-icon>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <!-- MOKAPOT A -->
+            <ion-col *ngIf="device.newdevice.S == '0' && device.devicetype.S == 'mokapotA'">
+              <h5 class="montserrat fs-12 fw-bold text-dark m-0 d-flex align-items-center">
+                {{device.devicename.S}} <img src="assets/new.png" class="ms-10" width="25px">
+              </h5>
+              <p class="montserrat fs-10 text-gray mt-0 mb-0">
+
+              </p>
+            </ion-col>
+            <ion-col *ngIf="device.newdevice.S == '1' && device.devicetype.S == 'mokapotA'">
+              <h5 class="montserrat fs-12 fw-bold text-dark m-0 d-flex align-items-center">
+                {{device.devicename.S}}
+              </h5>
+              <p class="montserrat fs-10 text-gray mt-0 mb-0">
+
+              </p>
+            </ion-col>
+            <!-- MOKAPOT B -->
+            <ion-col *ngIf="device.newdevice.S == '0' && device.devicetype.S == 'mokapotB'">
+              <h5 class="montserrat fs-12 fw-bold text-dark m-0 d-flex align-items-center">
+                {{device.devicename.S}} <img src="assets/new.png" class="ms-10" width="25px">
+              </h5>
+              <p class="montserrat fs-10 text-gray mt-0 mb-0">
+
+              </p>
+            </ion-col>
+            <ion-col *ngIf="device.newdevice.S == '1' && device.devicetype.S == 'mokapotB'">
+              <h5 class="montserrat fs-12 fw-bold text-dark m-0 d-flex align-items-center">
+                {{device.devicename.S}}
+              </h5>
+              <p class="montserrat fs-10 text-gray mt-0 mb-0">
+
+              </p>
+            </ion-col>
+            <!-- SCALEIST A -->
+            <ion-col *ngIf="device.newdevice.S == '0' && device.devicetype.S == 'scaleistA'" style="margin-top: 27px;">
+              <h5 class="montserrat fs-12 fw-bold text-dark m-0 d-flex align-items-center">
+                {{device.devicename.S}} <img src="assets/new.png" class="ms-10" width="25px">
+              </h5>
+              <p class="montserrat fs-10 text-gray mt-0 mb-0">
+
+              </p>
+            </ion-col>
+            <ion-col *ngIf="device.newdevice.S == '1' && device.devicetype.S == 'scaleistA'" style="margin-top: 27px;">
+              <h5 class="montserrat fs-12 fw-bold text-dark m-0 d-flex align-items-center">
+                {{device.devicename.S}}
+              </h5>
+              <p class="montserrat fs-10 text-gray mt-0 mb-0">
+
+              </p>
+            </ion-col>
+            <!-- SCALEIST B -->
+            <ion-col *ngIf="device.newdevice.S == '0' && device.devicetype.S == 'scaleistB'" style="margin-top: 27px;">
+              <h5 class="montserrat fs-12 fw-bold text-dark m-0 d-flex align-items-center">
+                {{device.devicename.S}} <img src="assets/new.png" class="ms-10" width="25px">
+              </h5>
+              <p class="montserrat fs-10 text-gray mt-0 mb-0">
+
+              </p>
+            </ion-col>
+            <ion-col *ngIf="device.newdevice.S == '1' && device.devicetype.S == 'scaleistB'" style="margin-top: 27px;">
+              <h5 class="montserrat fs-12 fw-bold text-dark m-0 d-flex align-items-center">
+                {{device.devicename.S}}
+              </h5>
+              <p class="montserrat fs-10 text-gray mt-0 mb-0">
+
+              </p>
+            </ion-col>
+            <!-- FITCHEF -->
+            <ion-col *ngIf="device.newdevice.S == '0' && device.devicetype.S == 'fitchef'">
+              <h5 class="montserrat fs-12 fw-bold text-dark m-0 d-flex align-items-center">
+                {{device.devicename.S}} <img src="assets/new.png" class="ms-10" width="25px">
+              </h5>
+              <p class="montserrat fs-10 text-gray mt-0 mb-0">
+
+              </p>
+            </ion-col>
+            <ion-col *ngIf="device.newdevice.S == '1' && device.devicetype.S == 'fitchef'">
+              <h5 class="montserrat fs-12 fw-bold text-dark m-0 d-flex align-items-center">
+                {{device.devicename.S}}
+              </h5>
+              <p class="montserrat fs-10 text-gray mt-0 mb-0">
+
+              </p>
+            </ion-col>
+            <!-- HOTTLE A -->
+            <ion-col *ngIf="device.newdevice.S == '0' && device.devicetype.S == 'hottleA'">
+              <h5 class="montserrat fs-6 fw-bold text-dark m-0 d-flex align-items-center">
+                {{device.devicename.S}} <img src="assets/new.png" class="ms-10" width="25px">
+              </h5>
+              <p class="montserrat fs-10 text-gray mt-0 mb-0">
+
+              </p>
+            </ion-col>
+            <ion-col *ngIf="device.newdevice.S == '1' && device.devicetype.S == 'hottleA'">
+              <h5 class="montserrat fs-12 fw-bold text-dark m-0 d-flex align-items-center">
+                {{device.devicename.S}}
+              </h5>
+              <p class="montserrat fs-10 text-gray mt-0 mb-0">
+
+              </p>
+            </ion-col>
+            <!-- KORKMAZ MODERNA -->
+            <ion-col *ngIf="device.newdevice.S == '0' && device.devicetype.S == 'moderna'">
+              <h5 class="montserrat fs-12 fw-bold text-dark m-0 d-flex align-items-center">
+                {{device.devicename.S}} <img src="assets/new.png" class="ms-10" width="25px">
+              </h5>
+              <p class="montserrat fs-10 text-gray mt-0 mb-0">
+
+              </p>
+            </ion-col>
+            <ion-col *ngIf="device.newdevice.S == '1' && device.devicetype.S == 'moderna'">
+              <h5 class="montserrat fs-12 fw-bold text-dark m-0 d-flex align-items-center">
+                {{device.devicename.S}}
+              </h5>
+              <p class="montserrat fs-10 text-gray mt-0 mb-0">
+
+              </p>
+            </ion-col>
+            <!-- KORKMAZ CASTRON -->
+            <ion-col *ngIf="device.newdevice.S == '0' && device.devicetype.S == 'korkmazCastron'">
+              <h5 class="montserrat fs-12 fw-bold text-dark m-0 d-flex align-items-center">
+                {{device.devicename.S}} <img src="assets/new.png" class="ms-10" width="25px">
+              </h5>
+              <p class="montserrat fs-10 text-gray mt-0 mb-0">
+
+              </p>
+            </ion-col>
+            <ion-col *ngIf="device.newdevice.S == '1' && device.devicetype.S == 'korkmazCastron'">
+              <h5 class="montserrat fs-12 fw-bold text-dark m-0 d-flex align-items-center">
+                {{device.devicename.S}}
+              </h5>
+              <p class="montserrat fs-10 text-gray mt-0 mb-0">
+
+              </p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+
+      <ion-col size="6" size-md="3" class="h-minc">
+        <ion-grid class="bg-transparent b-rad-10 add-box d-flex align-items-center justify-center">
+          <div>
+            <ion-row>
+              <ion-col class="p-0 text-center">
+                <ion-icon name="add-outline" (click)="goDevicesList()" class="fs-46 add-icon"></ion-icon>
+                <!-- <img src="assets/add-device-icon.png" (click)="goDevicesList()"> -->
+              </ion-col>
+            </ion-row>
+            <ion-row class="d-flex align-items-center justify-center">
+              <ion-col class="p-0 text-center">
+                <h6 class="m-0 sf-pro-bold fs-12 fw-bold">
+                  Add Device
+                </h6>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" class="me-15" (click)="goDeviceList()">
+    <ion-fab-button>
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-grid style="width: 100%; height: 200px; position: fixed; bottom: 0; z-index: 1; background: linear-gradient(180deg, rgba(246, 246, 246, 0) 3.63%, rgba(255, 255, 255, 0) 3.63%, #fff 70%);">
+
+  </ion-grid>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="footer-toolbar">
+    <ion-row>
+      <!-- <ion-col size="12" class="px-20">
+        <ion-button expand="block" class="add-btn sf-pro-bold fs-17" (click)="goDevicesList()">
+          Add new device
+        </ion-button>
+      </ion-col> -->
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

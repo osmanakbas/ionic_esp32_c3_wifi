@@ -1,0 +1,95 @@
+// ********* OLD CSS ********* //
+ ion-content {
+     --background: #fff url("../../assets/bg-main.png") no-repeat center center / cover;
+ }
+ ion-toolbar{
+     --background: url("../../assets/bg-header.png") no-repeat center center / cover;
+     --border-width: 0px!important;
+ }
+// .circles {
+//     background-image: url("../../assets/circles-bg.png");
+//     background-size: contain;
+//     background-repeat: no-repeat;
+//     background-position: center;
+// }
+// ion-segment{
+//     border-radius: 0!important;
+//     border-bottom:1px solid #ccc!important;
+// }
+// ion-segment-button {
+//     --indicator-box-shadow: transparent !important;
+//     margin: 0;
+//     --background: transparent;
+//     --color: black;
+//     --background-checked: transparent !important;
+//     --color-checked: black;
+//     --indicator-color: transparent !important; /* this solution */
+// }
+// .segment-button-checked {
+//     border-bottom: 2px solid #f68d2c!important;
+//     border-radius: 0!important;
+//     color: #f68d2c!important;
+//     margin-top:2px!important;
+// }
+// .device-box{
+//     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
+//     height: 140px;
+// }
+// .add-box{
+//     border:1px dashed rgba(0, 0, 0, 0.08);
+//     height: 140px;
+// }
+// ********* NEW CSS ********* //
+
+// ion-content {
+//     --background: #fff;
+// }
+
+// ion-toolbar {
+//     --background: #fff;
+//     --border-width: 0px !important;
+// }
+
+.device-box {
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+    height: 140px;
+}
+
+.add-box {
+    background: #f6f6f6;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+    //border:1px dashed rgba(0, 0, 0, 0.2);
+    height: 140px;
+}
+
+.add-icon {
+    color: #F74B4B;
+}
+
+.add-btn {
+    --background: #F74B4B;
+    --background-activated: #F74B4B;
+    --background-focused: #F74B4B;
+    --background-hover: #F74B4B;
+    color: #fff;
+    font-family: "SFProMedium";
+    font-size: 17px;
+}
+
+.my-device-box {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 1px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    background: #fff;
+}
+
+ion-fab-button {
+    --background: #F74B4B;
+    --background-activated: #F74B4B;
+    --background-hover: #F74B4B;
+    --box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, .3), 0px 1px 3px 1px rgba(0, 0, 0, .15);
+    --color: #fff;
+}
+.footer-toolbar {
+    --background: url("../../assets/bg-footer.png") no-repeat center center / cover;
+    --border-width: 0px !important;
+}

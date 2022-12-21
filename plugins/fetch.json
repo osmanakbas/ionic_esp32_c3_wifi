@@ -1,0 +1,127 @@
+{
+  "cordova-plugin-statusbar": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-statusbar@^2.4.2"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-device": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-device@^2.0.2"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-splashscreen": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-splashscreen@^5.0.2"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-ionic-webview": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-ionic-webview@latest"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-open-native-settings": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-open-native-settings@^1.5.5"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "wifiwizard2": {
+    "source": {
+      "type": "registry",
+      "id": "wifiwizard2@^3.1.1"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "es6-promise-plugin": {
+    "source": {
+      "type": "registry",
+      "id": "es6-promise-plugin@4.1.0"
+    },
+    "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-inappbrowser": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-inappbrowser@^4.1.0"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "phonegap-plugin-barcodescanner": {
+    "source": {
+      "type": "registry",
+      "id": "phonegap-plugin-barcodescanner@^8.1.0"
+    },
+    "is_top_level": true,
+    "variables": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+"
+    }
+  },
+  "ionic-plugin-deeplinks": {
+    "source": {
+      "type": "registry",
+      "id": "ionic-plugin-deeplinks@^1.0.24"
+    },
+    "is_top_level": true,
+    "variables": {
+      "URL_SCHEME": "beebird",
+      "DEEPLINK_HOST": "carv.ist",
+      "DEEPLINK_SCHEME": "https",
+      "ANDROID_PATH_PREFIX": "/",
+      "ANDROID_2_PATH_PREFIX": "/",
+      "ANDROID_3_PATH_PREFIX": "/",
+      "ANDROID_4_PATH_PREFIX": "/",
+      "ANDROID_5_PATH_PREFIX": "/",
+      "DEEPLINK_2_SCHEME": " ",
+      "DEEPLINK_2_HOST": " ",
+      "DEEPLINK_3_SCHEME": " ",
+      "DEEPLINK_3_HOST": " ",
+      "DEEPLINK_4_SCHEME": " ",
+      "DEEPLINK_4_HOST": " ",
+      "DEEPLINK_5_SCHEME": " ",
+      "DEEPLINK_5_HOST": " "
+    }
+  },
+  "cordova-plugin-geolocation": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-geolocation@^4.1.0"
+    },
+    "is_top_level": true,
+    "variables": {
+      "GPS_REQUIRED": "true"
+    }
+  },
+  "cordova-plugin-network-information": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-network-information@3.0.0"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-ble-central": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-ble-central"
+    },
+    "is_top_level": true,
+    "variables": {}
+  }
+}
